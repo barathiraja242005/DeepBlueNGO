@@ -1,0 +1,4 @@
+project_id = "yopfxlpopqwmtvooncfv"
+
+[functions.disease-suggestions]
+verify_jwt = false
