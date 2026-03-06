@@ -56,8 +56,8 @@ const StateDetail = ({ stateName, onBack, onStateChange, userState }: StateDetai
   const severities = ['self-care', 'doctor', 'emergency'] as const;
   const severityColors: Record<string, string> = {
     'self-care': '#E3FDFD',
-    'doctor': '#FFCE99',
-    'emergency': '#FF9644',
+    'doctor': '#4988C4',
+    'emergency': '#0F2854',
   };
 
   return (
@@ -90,7 +90,7 @@ const StateDetail = ({ stateName, onBack, onStateChange, userState }: StateDetai
               exportFilteredDiseaseData(stateData, stateName || 'State');
               toast.success(`${stateName} data downloaded!`);
             }}
-            className="px-4 py-2 bg-gradient-to-r from-[#FFCE99] to-[#FFCE99] text-white rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2 font-semibold text-sm"
+            className="px-4 py-2 bg-gradient-to-r from-[#4988C4] to-[#4988C4] text-white rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2 font-semibold text-sm"
           >
             <Download className="h-4 w-4" />
             Download Report
@@ -103,7 +103,7 @@ const StateDetail = ({ stateName, onBack, onStateChange, userState }: StateDetai
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="bg-gradient-to-br from-[#E3FDFD] to-[#FFCE99]/30 rounded-lg p-3 border border-[#FFCE99]/50"
+            className="bg-gradient-to-br from-[#E3FDFD] to-[#4988C4]/30 rounded-lg p-3 border border-[#4988C4]/50"
           >
             <div className="flex items-center gap-2 mb-1">
               <Activity className="h-4 w-4 text-[#562F00]" />
@@ -116,7 +116,7 @@ const StateDetail = ({ stateName, onBack, onStateChange, userState }: StateDetai
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-[#FFCE99] to-[#FFCE99]/30 rounded-lg p-3 border border-[#FFCE99]/50"
+            className="bg-gradient-to-br from-[#4988C4] to-[#4988C4]/30 rounded-lg p-3 border border-[#4988C4]/50"
           >
             <div className="flex items-center gap-2 mb-1">
               <AlertTriangle className="h-4 w-4 text-white" />
@@ -129,7 +129,7 @@ const StateDetail = ({ stateName, onBack, onStateChange, userState }: StateDetai
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="bg-gradient-to-br from-[#E3FDFD] to-[#FFCE99]/40 rounded-lg p-3 border border-[#FFCE99]/60"
+            className="bg-gradient-to-br from-[#E3FDFD] to-[#4988C4]/40 rounded-lg p-3 border border-[#4988C4]/60"
           >
             <div className="flex items-center gap-2 mb-1">
               <MapPin className="h-4 w-4 text-[#562F00]" />
@@ -142,7 +142,7 @@ const StateDetail = ({ stateName, onBack, onStateChange, userState }: StateDetai
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="bg-gradient-to-br from-[#FFCE99] to-[#FF9644] rounded-lg p-3 border border-[#FFCE99]"
+            className="bg-gradient-to-br from-[#4988C4] to-[#0F2854] rounded-lg p-3 border border-[#4988C4]"
           >
             <div className="flex items-center gap-2 mb-1">
               <TrendingUp className="h-4 w-4 text-white" />

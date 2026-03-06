@@ -43,7 +43,7 @@ const Analytics = ({ userState }: AnalyticsProps) => {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFCE99] to-[#FF9644] flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#BDE8F5] to-[#4988C4] flex items-center justify-center shadow-lg">
                 <BarChart3 className="h-6 w-6 text-white" />
               </div>
               <div>
@@ -58,7 +58,7 @@ const Analytics = ({ userState }: AnalyticsProps) => {
                 exportAnalyticsToExcel();
                 toast.success('Analytics report downloaded successfully!');
               }}
-              className="px-4 py-2 bg-gradient-to-r from-[#FFCE99] to-[#FFCE99] text-white rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2 font-semibold"
+              className="px-4 py-2 bg-gradient-to-r from-[#4988C4] to-[#4988C4] text-white rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2 font-semibold"
             >
               <Download className="h-4 w-4" />
               Download Analytics
@@ -81,10 +81,10 @@ const Analytics = ({ userState }: AnalyticsProps) => {
             <div className="space-y-4">
               {Object.entries(severityCount).map(([severity, count], index) => {
                 const colors = {
-                  low: 'from-[#E3FDFD] to-[#FFCE99]',
-                  medium: 'from-[#FFCE99] to-[#FFCE99]',
-                  high: 'from-[#FFCE99] to-[#FF9644]',
-                  critical: 'from-[#FF9644] to-[#FFCE99]',
+                  low: 'from-[#E3FDFD] to-[#4988C4]',
+                  medium: 'from-[#4988C4] to-[#4988C4]',
+                  high: 'from-[#4988C4] to-[#0F2854]',
+                  critical: 'from-[#0F2854] to-[#4988C4]',
                 };
                 const percentage = ((count / diseaseData.length) * 100).toFixed(1);
                 

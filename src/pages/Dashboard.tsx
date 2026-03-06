@@ -5,6 +5,7 @@ import { ngoData } from '@/data/ngoData';
 import { exportDashboardReport } from '@/lib/excelExport';
 import { toast } from 'sonner';
 import { useMemo } from 'react';
+import { colors } from '@/config/colors';
 
 interface DashboardProps {
   userState?: string; // For NGO users - restrict to their state
@@ -32,10 +33,10 @@ const Dashboard = ({ userState }: DashboardProps) => {
   const totalNGOs = filteredNgoData.length;
 
   const stats = [
-    { icon: Activity, label: 'Total Cases', value: totalCases.toLocaleString(), color: 'from-[#FFCE99] via-[#FFCE99] to-[#FF9644]', bgPattern: 'bg-[#FFCE99]/5', change: '+12%' },
-    { icon: AlertTriangle, label: 'Emergency', value: emergencyCases, color: 'from-[#FFCE99] via-[#FF9644] to-[#FFCE99]', bgPattern: 'bg-[#FFCE99]/5', change: '-5%' },
-    { icon: MapPin, label: 'Active States', value: activeStates, color: 'from-[#FFCE99] to-[#FFCE99]', bgPattern: 'bg-[#E3FDFD]/10', change: '+3' },
-    { icon: Users, label: 'NGO Partners', value: totalNGOs, color: 'from-[#FFCE99] to-[#FFCE99]', bgPattern: 'bg-[#FF9644]/5', change: '+8' },
+    { icon: Activity, label: 'Total Cases', value: totalCases.toLocaleString(), color: colors.gradients.soft, bgPattern: colors.backgrounds.light, change: '+12%' },
+    { icon: AlertTriangle, label: 'Emergency', value: emergencyCases, color: colors.gradients.reverse, bgPattern: colors.backgrounds.primary, change: '-5%' },
+    { icon: MapPin, label: 'Active States', value: activeStates, color: colors.gradients.primary, bgPattern: colors.backgrounds.secondary, change: '+3' },
+    { icon: Users, label: 'NGO Partners', value: totalNGOs, color: colors.gradients.light, bgPattern: colors.backgrounds.light, change: '+8' },
   ];
 
   const recentAlerts = filteredDiseaseData
@@ -68,7 +69,7 @@ const Dashboard = ({ userState }: DashboardProps) => {
                 exportDashboardReport();
                 toast.success('Dashboard report downloaded successfully!');
               }}
-              className="px-4 py-2 bg-gradient-to-r from-[#FFCE99] to-[#FFCE99] text-white rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2 font-semibold"
+              className="px-4 py-2 bg-gradient-to-r from-[#4988C4] to-[#4988C4] text-white rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2 font-semibold"
             >
               <Download className="h-4 w-4" />
               Download Report
@@ -135,8 +136,8 @@ const Dashboard = ({ userState }: DashboardProps) => {
                     <div className="flex flex-col items-end gap-1">
                       <span className={`text-xs font-bold px-2 py-1 rounded-full ${
                         alert.severity === 'emergency' 
-                          ? 'bg-[#FF9644] text-white' 
-                          : 'bg-[#FFCE99] text-white'
+                          ? 'bg-[#0F2854] text-white' 
+                          : 'bg-[#4988C4] text-white'
                       }`}>
                         {alert.severity.toUpperCase()}
                       </span>

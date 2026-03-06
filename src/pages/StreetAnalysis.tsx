@@ -205,7 +205,7 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
                 <motion.div 
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
-                  className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FFCE99] via-[#FFCE99] to-[#FF9644] flex items-center justify-center shadow-lg shadow-[#FFCE99]/30"
+                  className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#4988C4] via-[#1C4D8D] to-[#0F2854] flex items-center justify-center shadow-lg shadow-[#1C4D8D]/30"
                 >
                   <MapPin className="h-7 w-7 text-white" />
                 </motion.div>
@@ -230,7 +230,7 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
                   <Filter className="h-4 w-4" />
                   Filters
                   {hasActiveFilters && (
-                    <span className="w-2 h-2 bg-[#FFCE99] rounded-full animate-pulse" />
+                    <span className="w-2 h-2 bg-[#4988C4] rounded-full animate-pulse" />
                   )}
                 </motion.button>
                 <motion.button
@@ -240,7 +240,7 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
                     exportStreetLevelReport();
                     toast.success('Street analysis report downloaded!');
                   }}
-                  className="px-4 py-2.5 bg-gradient-to-r from-[#FFCE99] to-[#FFCE99] text-white rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2 font-semibold"
+                  className="px-4 py-2.5 bg-gradient-to-r from-[#4988C4] to-[#4988C4] text-white rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2 font-semibold"
                 >
                   <Download className="h-4 w-4" />
                   Export
@@ -377,14 +377,14 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
               }}
             >
               <div className="absolute top-0 right-0 w-28 h-28 opacity-10">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#FFCE99] via-[#FFCE99] to-[#FF9644] blur-2xl" />
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#4988C4] via-[#1C4D8D] to-[#0F2854] blur-2xl" />
               </div>
               <div className="relative z-10 flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFCE99] via-[#FFCE99] to-[#FF9644] flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#4988C4] via-[#1C4D8D] to-[#0F2854] flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform">
                   <MapPin className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-4xl font-black bg-gradient-to-r from-[#FFCE99] to-[#FFCE99] bg-clip-text text-transparent">{totalStreets}</p>
+                  <p className="text-4xl font-black bg-gradient-to-r from-[#4988C4] to-[#4988C4] bg-clip-text text-transparent">{totalStreets}</p>
                   <p className="text-xs text-gray-600 font-bold uppercase tracking-wider">Affected Streets</p>
                 </div>
               </div>
@@ -412,14 +412,14 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
               }}
             >
               <div className="absolute top-0 right-0 w-28 h-28 opacity-10">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#FFCE99] via-[#FF9644] to-[#FFCE99] blur-2xl" />
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#4988C4] via-[#1C4D8D] to-[#0F2854] blur-2xl" />
               </div>
               <div className="relative z-10 flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFCE99] via-[#FF9644] to-[#FFCE99] flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#4988C4] via-[#1C4D8D] to-[#0F2854] flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform">
                   <AlertCircle className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-4xl font-black bg-gradient-to-r from-[#FF9644] to-[#FFCE99] bg-clip-text text-transparent">{emergencyStreets}</p>
+                  <p className="text-4xl font-black bg-gradient-to-r from-[#0F2854] to-[#4988C4] bg-clip-text text-transparent">{emergencyStreets}</p>
                   <p className="text-xs text-gray-600 font-bold uppercase tracking-wider">Emergency Streets</p>
                 </div>
               </div>
@@ -447,14 +447,14 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
               }}
             >
               <div className="absolute top-0 right-0 w-28 h-28 opacity-10">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#FFCE99] to-[#FFCE99] blur-2xl" />
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#4988C4] to-[#4988C4] blur-2xl" />
               </div>
               <div className="relative z-10 flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFCE99] to-[#FFCE99] flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#4988C4] to-[#4988C4] flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform">
                   <Activity className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-4xl font-black bg-gradient-to-r from-[#FFCE99] to-[#FFCE99] bg-clip-text text-transparent">{doctorStreets}</p>
+                  <p className="text-4xl font-black bg-gradient-to-r from-[#4988C4] to-[#4988C4] bg-clip-text text-transparent">{doctorStreets}</p>
                   <p className="text-xs text-gray-600 font-bold uppercase tracking-wider">Doctor Visit Streets</p>
                 </div>
               </div>
@@ -482,14 +482,14 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
               }}
             >
               <div className="absolute top-0 right-0 w-28 h-28 opacity-10">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#FFCE99] to-[#FF9644] blur-2xl" />
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#4988C4] to-[#0F2854] blur-2xl" />
               </div>
               <div className="relative z-10 flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFCE99] to-[#FF9644] flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#4988C4] to-[#0F2854] flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform">
                   <TrendingUp className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-4xl font-black bg-gradient-to-r from-[#FF9644] to-[#FFCE99] bg-clip-text text-transparent">{totalCases.toLocaleString()}</p>
+                  <p className="text-4xl font-black bg-gradient-to-r from-[#0F2854] to-[#4988C4] bg-clip-text text-transparent">{totalCases.toLocaleString()}</p>
                   <p className="text-xs text-gray-600 font-bold uppercase tracking-wider">Total Cases</p>
                 </div>
               </div>
@@ -517,14 +517,14 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
               }}
             >
               <div className="absolute top-0 right-0 w-28 h-28 opacity-10">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#FFCE99] via-[#FFCE99] to-[#FF9644] blur-2xl" />
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#4988C4] via-[#4988C4] to-[#0F2854] blur-2xl" />
               </div>
               <div className="relative z-10 flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFCE99] via-[#FFCE99] to-[#FF9644] flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#4988C4] via-[#4988C4] to-[#0F2854] flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform">
                   <BarChart3 className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-4xl font-black bg-gradient-to-r from-[#FFCE99] to-[#FF9644] bg-clip-text text-transparent">{avgCasesPerStreet}</p>
+                  <p className="text-4xl font-black bg-gradient-to-r from-[#4988C4] to-[#0F2854] bg-clip-text text-transparent">{avgCasesPerStreet}</p>
                   <p className="text-xs text-gray-600 font-bold uppercase tracking-wider">Avg per Street</p>
                 </div>
               </div>
@@ -545,7 +545,7 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
             <div className="space-y-3">
               {diseaseCount.map(([disease, count], index) => {
                 const percentage = (count / totalStreets) * 100;
-                const colors = ['bg-[#FF9644]', 'bg-[#FFCE99]', 'bg-[#FFCE99]', 'bg-[#E3FDFD]', 'bg-[#FFCE99]'];
+                const colors = ['bg-[#0F2854]', 'bg-[#4988C4]', 'bg-[#4988C4]', 'bg-[#E3FDFD]', 'bg-[#4988C4]'];
                 return (
                   <motion.div
                     key={disease}
@@ -589,9 +589,9 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
                 >
                   {searchTags.map((tag, index) => {
                     const colors = {
-                      street: 'bg-[#FFCE99]/10 text-[#562F00] border-[#FFCE99] hover:bg-[#FFCE99]/20',
-                      city: 'bg-[#FFCE99]/10 text-[#562F00] border-[#FFCE99] hover:bg-[#FFCE99]/20',
-                      state: 'bg-[#E3FDFD]/20 text-[#562F00] border-[#FFCE99] hover:bg-[#E3FDFD]/30'
+                      street: 'bg-[#4988C4]/10 text-[#562F00] border-[#4988C4] hover:bg-[#4988C4]/20',
+                      city: 'bg-[#4988C4]/10 text-[#562F00] border-[#4988C4] hover:bg-[#4988C4]/20',
+                      state: 'bg-[#E3FDFD]/20 text-[#562F00] border-[#4988C4] hover:bg-[#E3FDFD]/30'
                     };
                     return (
                       <motion.div
@@ -778,17 +778,17 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
                       rotateZ: 1,
                       transition: { duration: 0.3, ease: "easeOut" }
                     }}
-                    className="relative p-6 rounded-3xl bg-gradient-to-br from-white via-[#E3FDFD]/30 to-white backdrop-blur-xl border-2 border-[#FFCE99]/50 hover:border-[#FFCE99]/60 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                    className="relative p-6 rounded-3xl bg-gradient-to-br from-white via-[#E3FDFD]/30 to-white backdrop-blur-xl border-2 border-[#4988C4]/50 hover:border-[#4988C4]/60 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden"
                     style={{
                       boxShadow: '0 8px 32px rgba(28, 77, 141, 0.1), inset 0 1px 0 rgba(255,255,255,0.9)'
                     }}
                   >
                     {/* Decorative blur element */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#FFCE99]/20 to-[#E3FDFD]/10 rounded-full blur-2xl" />
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#4988C4]/20 to-[#E3FDFD]/10 rounded-full blur-2xl" />
                     
                     <div className="relative z-10">
                       <div className="flex items-start gap-4 mb-4">
-                        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FFCE99] via-[#FFCE99] to-[#FF9644] flex items-center justify-center flex-shrink-0 shadow-lg transform hover:rotate-12 transition-transform">
+                        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#4988C4] via-[#4988C4] to-[#0F2854] flex items-center justify-center flex-shrink-0 shadow-lg transform hover:rotate-12 transition-transform">
                           <MapPin className="h-7 w-7 text-white" />
                         </div>
                         <div className="flex-1 min-w-0">
@@ -798,7 +798,7 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
                             <span>{street.city}</span>
                           </div>
                         </div>
-                        <div className="flex flex-col items-end gap-1 bg-gradient-to-br from-[#FFCE99] to-[#FF9644] rounded-xl px-4 py-3 shadow-lg">
+                        <div className="flex flex-col items-end gap-1 bg-gradient-to-br from-[#4988C4] to-[#0F2854] rounded-xl px-4 py-3 shadow-lg">
                           <span className="text-3xl font-bold text-white">
                             {street.totalCases}
                           </span>
@@ -815,7 +815,7 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
                           </div>
                           <div className="w-full h-2 bg-[#E3FDFD]/30 rounded-full overflow-hidden">
                             <div 
-                              className="h-full bg-gradient-to-r from-[#FF9644] to-[#FFCE99] rounded-full"
+                              className="h-full bg-gradient-to-r from-[#0F2854] to-[#4988C4] rounded-full"
                               style={{ width: `${(street.emergencyIncidents / Math.max(street.emergencyIncidents + street.doctorIncidents + street.selfCareIncidents, 1)) * 100}%` }}
                             />
                           </div>
@@ -823,11 +823,11 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
                         <div>
                           <div className="flex items-center justify-between mb-1">
                             <span className="text-xs font-semibold text-muted-foreground">Doctor</span>
-                            <span className="text-xs font-bold text-[#FF9644]">{street.doctorIncidents}</span>
+                            <span className="text-xs font-bold text-[#0F2854]">{street.doctorIncidents}</span>
                           </div>
                           <div className="w-full h-2 bg-[#E3FDFD]/30 rounded-full overflow-hidden">
                             <div 
-                              className="h-full bg-gradient-to-r from-[#FFCE99] to-[#FFCE99] rounded-full"
+                              className="h-full bg-gradient-to-r from-[#4988C4] to-[#4988C4] rounded-full"
                               style={{ width: `${(street.doctorIncidents / Math.max(street.emergencyIncidents + street.doctorIncidents + street.selfCareIncidents, 1)) * 100}%` }}
                             />
                           </div>
@@ -835,11 +835,11 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
                         <div>
                           <div className="flex items-center justify-between mb-1">
                             <span className="text-xs font-semibold text-muted-foreground">Self-Care</span>
-                            <span className="text-xs font-bold text-[#FF9644]">{street.selfCareIncidents}</span>
+                            <span className="text-xs font-bold text-[#0F2854]">{street.selfCareIncidents}</span>
                           </div>
                           <div className="w-full h-2 bg-[#E3FDFD]/30 rounded-full overflow-hidden">
                             <div 
-                              className="h-full bg-gradient-to-r from-[#FFCE99] to-[#E3FDFD] rounded-full"
+                              className="h-full bg-gradient-to-r from-[#4988C4] to-[#E3FDFD] rounded-full"
                               style={{ width: `${(street.selfCareIncidents / Math.max(street.emergencyIncidents + street.doctorIncidents + street.selfCareIncidents, 1)) * 100}%` }}
                             />
                           </div>
@@ -848,17 +848,17 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
 
                       {/* Stats Grid */}
                       <div className="grid grid-cols-3 gap-2 mb-4">
-                        <div className="text-center p-3 rounded-xl bg-gradient-to-br from-[#E3FDFD]/50 to-[#E3FDFD]/20 border-2 border-[#FFCE99]/30">
+                        <div className="text-center p-3 rounded-xl bg-gradient-to-br from-[#E3FDFD]/50 to-[#E3FDFD]/20 border-2 border-[#4988C4]/30">
                           <p className="text-lg font-bold text-[#562F00]">{street.diseases.length}</p>
-                          <p className="text-xs text-[#FF9644] font-medium">Diseases</p>
+                          <p className="text-xs text-[#0F2854] font-medium">Diseases</p>
                         </div>
-                        <div className="text-center p-3 rounded-xl bg-gradient-to-br from-[#FFCE99]/30 to-[#FFCE99]/10 border-2 border-[#FFCE99]/30">
+                        <div className="text-center p-3 rounded-xl bg-gradient-to-br from-[#4988C4]/30 to-[#4988C4]/10 border-2 border-[#4988C4]/30">
                           <p className="text-lg font-bold text-[#562F00]">{street.incidents.length}</p>
-                          <p className="text-xs text-[#FF9644] font-medium">Incidents</p>
+                          <p className="text-xs text-[#0F2854] font-medium">Incidents</p>
                         </div>
-                        <div className="text-center p-3 rounded-xl bg-gradient-to-br from-[#FFCE99]/30 to-[#FFCE99]/10 border-2 border-[#FF9644]/30">
+                        <div className="text-center p-3 rounded-xl bg-gradient-to-br from-[#4988C4]/30 to-[#4988C4]/10 border-2 border-[#0F2854]/30">
                           <p className="text-xs font-bold text-[#562F00]">{new Date(street.lastReported).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</p>
-                          <p className="text-xs text-[#FF9644] font-medium">Last Report</p>
+                          <p className="text-xs text-[#0F2854] font-medium">Last Report</p>
                         </div>
                       </div>
 
@@ -866,9 +866,9 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
                       <div className="flex flex-wrap gap-2">
                         {street.diseases.slice(0, 3).map((disease: string, i: number) => {
                           const colors = [
-                            'from-[#FFCE99] to-[#FFCE99]',
-                            'from-[#FFCE99] to-[#FF9644]',
-                            'from-[#E3FDFD] to-[#FFCE99]'
+                            'from-[#4988C4] to-[#4988C4]',
+                            'from-[#4988C4] to-[#0F2854]',
+                            'from-[#E3FDFD] to-[#4988C4]'
                           ];
                           return (
                             <span
@@ -880,7 +880,7 @@ const StreetAnalysis = ({ userState }: StreetAnalysisProps) => {
                           );
                         })}
                         {street.diseases.length > 3 && (
-                          <span className="px-3 py-1.5 bg-[#E3FDFD] text-[#562F00] text-xs font-bold rounded-xl border-2 border-[#FFCE99]/50">
+                          <span className="px-3 py-1.5 bg-[#E3FDFD] text-[#562F00] text-xs font-bold rounded-xl border-2 border-[#4988C4]/50">
                             +{street.diseases.length - 3} more
                           </span>
                         )}
