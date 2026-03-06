@@ -7,6 +7,7 @@ import { useUser } from "./contexts/UserContext";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import NGOManagement from "./pages/NGOManagement";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Index />} />
+      <Route path="/ngo-management" element={<NGOManagement />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>

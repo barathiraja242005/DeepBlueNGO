@@ -5,8 +5,13 @@ export interface NGO {
   state: string;
   contact: string;
   website: string;
+  email?: string;
   focus: string[];
   assignedActivities: string[];
+  established?: string;
+  volunteers?: number;
+  activeProjects?: number;
+  status?: 'active' | 'inactive' | 'pending';
 }
 
 export const ngoData: NGO[] = [

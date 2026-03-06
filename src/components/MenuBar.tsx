@@ -10,12 +10,13 @@ interface MenuBarProps {
 }
 
 const menuItems = [
-  { id: 'dashboard', icon: Home, label: 'Dashboard' },
-  { id: 'map', icon: MapPin, label: 'Disease Map' },
-  { id: 'streets', icon: Navigation, label: 'Street Analysis' },
-  { id: 'analytics', icon: BarChart3, label: 'Analytics' },
-  { id: 'ngo', icon: Users, label: 'NGO Network' },
-  { id: 'settings', icon: Settings, label: 'Settings' },
+  { id: 'dashboard', icon: Home, label: 'Dashboard', adminOnly: false },
+  { id: 'map', icon: MapPin, label: 'Disease Map', adminOnly: false },
+  { id: 'streets', icon: Navigation, label: 'Street Analysis', adminOnly: false },
+  { id: 'analytics', icon: BarChart3, label: 'Analytics', adminOnly: false },
+  { id: 'ngo', icon: Users, label: 'NGO Network', adminOnly: false },
+  { id: 'ngo-management', icon: Building2, label: 'NGO Management', adminOnly: true },
+  { id: 'settings', icon: Settings, label: 'Settings', adminOnly: false },
 ];
 
 const MenuBar = ({ activeItem = 'map', onItemClick }: MenuBarProps) => {
@@ -68,7 +69,7 @@ const MenuBar = ({ activeItem = 'map', onItemClick }: MenuBarProps) => {
 
         {/* Menu Items */}
         <nav className="flex-1 py-4 overflow-y-auto">
-          {menuItems.map((item, index) => {
+          {menuItems.filter(item => !item.adminOnly || isAdmin).map((item, index) => {
             const Icon = item.icon;
             const isActive = activeItem === item.id;
 

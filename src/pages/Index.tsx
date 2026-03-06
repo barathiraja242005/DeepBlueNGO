@@ -9,6 +9,7 @@ import Analytics from './Analytics';
 import NGONetwork from './NGONetwork';
 import Settings from './Settings';
 import StateDetail from './StateDetail';
+import NGOManagement from './NGOManagement';
 
 const Index = () => {
   const { user, isAdmin, isNGO } = useUser();
@@ -40,6 +41,8 @@ const Index = () => {
         return <Analytics userState={isNGO ? user?.state : undefined} />;
       case 'ngo':
         return <NGONetwork userState={isNGO ? user?.state : undefined} />;
+      case 'ngo-management':
+        return isAdmin ? <NGOManagement /> : <Dashboard userState={isNGO ? user?.state : undefined} />;
       case 'settings':
         return <Settings />;
       default:
