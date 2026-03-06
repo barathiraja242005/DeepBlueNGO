@@ -49,7 +49,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex bg-background">
       {/* Left Side - Hero Section */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#0F2854] via-[#1C4D8D] to-[#4988C4] p-12 flex-col justify-between relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#050C9C] via-[#3572EF] to-[#3ABEF9] p-12 flex-col justify-between relative overflow-hidden">
         {/* Decorative Elements */}
         <motion.div
           animate={{
@@ -73,7 +73,7 @@ const Login = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute bottom-0 left-0 w-80 h-80 bg-[#BDE8F5]/20 rounded-full blur-3xl"
+          className="absolute bottom-0 left-0 w-80 h-80 bg-[#A7E6FF]/20 rounded-full blur-3xl"
         />
 
         {/* Logo & Branding */}
@@ -103,7 +103,7 @@ const Login = () => {
         >
           <h1 className="text-5xl font-black text-white leading-tight">
             Real-Time Health<br />
-            <span className="text-[#BDE8F5]">Data Analytics</span>
+            <span className="text-[#A7E6FF]">Data Analytics</span>
           </h1>
           <p className="text-xl text-white/90 font-medium leading-relaxed max-w-md">
             Track disease outbreaks, analyze patterns, and coordinate responses across India's urban communities.
@@ -157,10 +157,10 @@ const Login = () => {
           {/* Mobile Logo */}
           <div className="lg:hidden mb-8 text-center">
             <div className="inline-flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1C4D8D] to-[#4988C4] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3572EF] to-[#3ABEF9] flex items-center justify-center">
                 <LogIn className="h-6 w-6 text-white" />
               </div>
-              <h2 className="text-2xl font-black text-[#0F2854]">Street Health</h2>
+              <h2 className="text-2xl font-black text-[#050C9C]">Street Health</h2>
             </div>
           </div>
 
@@ -171,8 +171,8 @@ const Login = () => {
             transition={{ delay: 0.2 }}
             className="mb-8"
           >
-            <h1 className="text-4xl font-black text-[#0F2854] mb-2">Welcome Back</h1>
-            <p className="text-[#4988C4] font-medium">Sign in to access your dashboard</p>
+            <h1 className="text-4xl font-black text-[#050C9C] mb-2">Welcome Back</h1>
+            <p className="text-[#3ABEF9] font-medium">Sign in to access your dashboard</p>
           </motion.div>
 
           {/* Role Tabs */}
@@ -180,14 +180,14 @@ const Login = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex gap-2 p-1.5 bg-[#BDE8F5]/30 rounded-2xl mb-6"
+            className="flex gap-2 p-1.5 bg-[#A7E6FF]/30 rounded-2xl mb-6"
           >
             <button
               onClick={() => setSelectedRole('ngo')}
               className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all ${
                 selectedRole === 'ngo'
-                  ? 'bg-white text-[#0F2854] shadow-md'
-                  : 'text-[#4988C4] hover:text-[#1C4D8D]'
+                  ? 'bg-white text-[#050C9C] shadow-md'
+                  : 'text-[#3ABEF9] hover:text-[#3572EF]'
               }`}
             >
               <Building2 className="h-4 w-4 inline mr-2" />
@@ -197,8 +197,8 @@ const Login = () => {
               onClick={() => setSelectedRole('admin')}
               className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all ${
                 selectedRole === 'admin'
-                  ? 'bg-white text-[#0F2854] shadow-md'
-                  : 'text-[#4988C4] hover:text-[#1C4D8D]'
+                  ? 'bg-white text-[#050C9C] shadow-md'
+                  : 'text-[#3ABEF9] hover:text-[#3572EF]'
               }`}
             >
               <Shield className="h-4 w-4 inline mr-2" />
@@ -216,14 +216,14 @@ const Login = () => {
           >
             {selectedRole === 'ngo' ? (
               <div className="space-y-2">
-                <label className="block text-sm font-bold text-[#0F2854]">
+                <label className="block text-sm font-bold text-[#050C9C]">
                   Select Your Organization
                 </label>
                 <select
                   value={ngoId}
                   onChange={(e) => setNgoId(e.target.value)}
                   required
-                  className="w-full px-4 py-3.5 rounded-xl bg-white border-2 border-[#BDE8F5] focus:border-[#4988C4] focus:outline-none text-[#0F2854] font-medium transition-colors"
+                  className="w-full px-4 py-3.5 rounded-xl bg-white border-2 border-[#A7E6FF] focus:border-[#3ABEF9] focus:outline-none text-[#050C9C] font-medium transition-colors"
                 >
                   <option value="">Choose your organization...</option>
                   {ngoData.map(ngo => (
@@ -232,13 +232,13 @@ const Login = () => {
                     </option>
                   ))}
                 </select>
-                <p className="text-xs text-[#4988C4] font-medium">
+                <p className="text-xs text-[#3ABEF9] font-medium">
                   Select your registered NGO from the list
                 </p>
               </div>
             ) : (
               <div className="space-y-2">
-                <label className="block text-sm font-bold text-[#0F2854]">
+                <label className="block text-sm font-bold text-[#050C9C]">
                   Admin Password
                 </label>
                 <div className="relative">
@@ -248,17 +248,17 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                     placeholder="Enter admin password"
-                    className="w-full px-4 py-3.5 rounded-xl bg-white border-2 border-[#BDE8F5] focus:border-[#4988C4] focus:outline-none text-[#0F2854] font-medium pr-12 transition-colors"
+                    className="w-full px-4 py-3.5 rounded-xl bg-white border-2 border-[#A7E6FF] focus:border-[#3ABEF9] focus:outline-none text-[#050C9C] font-medium pr-12 transition-colors"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-[#4988C4] hover:text-[#0F2854] transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-[#3ABEF9] hover:text-[#050C9C] transition-colors"
                   >
                     {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                   </button>
                 </div>
-                <p className="text-xs text-[#4988C4] font-medium">
+                <p className="text-xs text-[#3ABEF9] font-medium">
                   Demo: Use "admin123" to login
                 </p>
               </div>
@@ -268,7 +268,7 @@ const Login = () => {
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full py-4 bg-gradient-to-r from-[#0F2854] via-[#1C4D8D] to-[#4988C4] text-white rounded-xl font-bold text-base shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2 mt-6"
+              className="w-full py-4 bg-gradient-to-r from-[#050C9C] via-[#3572EF] to-[#3ABEF9] text-white rounded-xl font-bold text-base shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2 mt-6"
             >
               <LogIn className="h-5 w-5" />
               Sign In
@@ -280,10 +280,10 @@ const Login = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="mt-6 p-4 rounded-xl bg-[#BDE8F5]/20 border border-[#4988C4]/30"
+            className="mt-6 p-4 rounded-xl bg-[#A7E6FF]/20 border border-[#3ABEF9]/30"
           >
-            <p className="text-xs text-[#1C4D8D] leading-relaxed">
-              <strong className="font-bold text-[#0F2854]">Note:</strong> NGO users can only access data for their registered state. Administrators have full system access.
+            <p className="text-xs text-[#3572EF] leading-relaxed">
+              <strong className="font-bold text-[#050C9C]">Note:</strong> NGO users can only access data for their registered state. Administrators have full system access.
             </p>
           </motion.div>
 
@@ -294,19 +294,19 @@ const Login = () => {
             transition={{ delay: 0.6 }}
             className="mt-8 text-center"
           >
-            <p className="text-xs text-[#4988C4] font-semibold mb-3">Trusted by health organizations nationwide</p>
+            <p className="text-xs text-[#3ABEF9] font-semibold mb-3">Trusted by health organizations nationwide</p>
             <div className="flex items-center justify-center gap-2">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-[#4988C4] to-[#1C4D8D] border-2 border-white flex items-center justify-center text-white text-xs font-bold"
+                    className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3ABEF9] to-[#3572EF] border-2 border-white flex items-center justify-center text-white text-xs font-bold"
                   >
                     {i}
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-[#1C4D8D] font-medium ml-2">50+ Active Partners</p>
+              <p className="text-xs text-[#3572EF] font-medium ml-2">50+ Active Partners</p>
             </div>
           </motion.div>
         </motion.div>

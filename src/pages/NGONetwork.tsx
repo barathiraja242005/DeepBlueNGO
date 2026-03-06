@@ -41,7 +41,7 @@ const NGONetwork = ({ userState }: NGONetworkProps) => {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1C4D8D] to-[#0F2854] flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFCE99] to-[#FF9644] flex items-center justify-center shadow-lg">
                 <Users className="h-6 w-6 text-white" />
               </div>
               <div>
@@ -56,7 +56,7 @@ const NGONetwork = ({ userState }: NGONetworkProps) => {
                 exportNGODataToExcel();
                 toast.success('NGO directory downloaded successfully!');
               }}
-              className="px-4 py-2 bg-gradient-to-r from-[#4988C4] to-[#1C4D8D] text-white rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2 font-semibold"
+              className="px-4 py-2 bg-gradient-to-r from-[#FFCE99] to-[#FFCE99] text-white rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2 font-semibold"
             >
               <Download className="h-4 w-4" />
               Download Directory
@@ -90,7 +90,7 @@ const NGONetwork = ({ userState }: NGONetworkProps) => {
             className="bg-card rounded-2xl p-6 border border-border shadow-sm"
           >
             <div className="flex items-center gap-3 mb-2">
-              <MapPin className="h-8 w-8 text-[#1C4D8D]" />
+              <MapPin className="h-8 w-8 text-[#FF9644]" />
               <div>
                 <p className="text-3xl font-bold text-foreground">{Object.keys(cityCounts).length}</p>
                 <p className="text-sm text-muted-foreground">Cities Covered</p>
@@ -106,7 +106,7 @@ const NGONetwork = ({ userState }: NGONetworkProps) => {
             className="bg-card rounded-2xl p-6 border border-border shadow-sm"
           >
             <div className="flex items-center gap-3 mb-2">
-              <CheckCircle className="h-8 w-8 text-[#4988C4]" />
+              <CheckCircle className="h-8 w-8 text-[#FF9644]" />
               <div>
                 <p className="text-3xl font-bold text-foreground">{Object.keys(focusAreas).length}</p>
                 <p className="text-sm text-muted-foreground">Focus Areas</p>
@@ -131,20 +131,20 @@ const NGONetwork = ({ userState }: NGONetworkProps) => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ delay: 0.5 + index * 0.05, type: 'spring', stiffness: 120 }}
                 whileHover={{ scale: 1.05, y: -8, rotateZ: 1 }}
-                className="relative p-6 rounded-3xl bg-gradient-to-br from-white via-[#BDE8F5]/30 to-white backdrop-blur-xl border-2 border-[#4988C4]/50 hover:border-[#1C4D8D]/60 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                className="relative p-6 rounded-3xl bg-gradient-to-br from-white via-[#E3FDFD]/30 to-white backdrop-blur-xl border-2 border-[#FFCE99]/50 hover:border-[#FFCE99]/60 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden"
                 style={{
                   boxShadow: '0 8px 32px rgba(28, 77, 141, 0.1), inset 0 1px 0 rgba(255,255,255,0.9)'
                 }}
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#4988C4]/20 to-[#BDE8F5]/10 rounded-full blur-2xl" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#FFCE99]/20 to-[#E3FDFD]/10 rounded-full blur-2xl" />
                 <div className="relative z-10">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#4988C4] via-[#1C4D8D] to-[#0F2854] flex items-center justify-center flex-shrink-0 shadow-lg transform hover:rotate-12 transition-transform">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FFCE99] via-[#FFCE99] to-[#FF9644] flex items-center justify-center flex-shrink-0 shadow-lg transform hover:rotate-12 transition-transform">
                       <Building2 className="h-7 w-7 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-black text-gray-900 text-lg mb-2 truncate">{ngo.name}</h3>
-                      <div className="flex items-center gap-2 text-sm font-bold text-[#0F2854] bg-[#BDE8F5] px-3 py-1 rounded-full w-fit">
+                      <div className="flex items-center gap-2 text-sm font-bold text-[#562F00] bg-[#E3FDFD] px-3 py-1 rounded-full w-fit">
                         <MapPin className="h-4 w-4 flex-shrink-0" />
                         <span>{ngo.city}</span>
                       </div>
@@ -173,11 +173,11 @@ const NGONetwork = ({ userState }: NGONetworkProps) => {
                 <div className="flex flex-wrap gap-2 mb-4">
                   {ngo.focus.map((focus, idx) => {
                     const colors = [
-                      'from-[#4988C4] to-[#1C4D8D]',
-                      'from-[#1C4D8D] to-[#0F2854]',
-                      'from-[#BDE8F5] to-[#4988C4]',
-                      'from-[#0F2854] to-[#4988C4]',
-                      'from-[#4988C4] via-[#1C4D8D] to-[#0F2854]'
+                      'from-[#FFCE99] to-[#FFCE99]',
+                      'from-[#FFCE99] to-[#FF9644]',
+                      'from-[#E3FDFD] to-[#FFCE99]',
+                      'from-[#FF9644] to-[#FFCE99]',
+                      'from-[#FFCE99] via-[#FFCE99] to-[#FF9644]'
                     ];
                     return (
                       <span 

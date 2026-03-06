@@ -65,9 +65,9 @@ const MapSidebar = ({ data, selectedDisease, setSelectedDisease, selectedSeverit
           </motion.div>
           <motion.div 
             whileHover={{ scale: 1.05, y: -2 }}
-            className="text-center bg-[#0F2854]/10 rounded-lg p-2 transition-shadow hover:shadow-md"
+            className="text-center bg-[#FF9644]/10 rounded-lg p-2 transition-shadow hover:shadow-md"
           >
-            <p className="text-xl font-bold text-[#0F2854]">{emergencyCount}</p>
+            <p className="text-xl font-bold text-[#562F00]">{emergencyCount}</p>
             <p className="text-[9px] text-muted-foreground uppercase tracking-wider font-semibold">Emergency</p>
           </motion.div>
           <motion.div 

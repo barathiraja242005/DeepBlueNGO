@@ -344,24 +344,24 @@ const NGOManagement = () => {
 
           <motion.div
             whileHover={{ scale: 1.03, y: -4 }}
-            className="bg-white rounded-2xl p-6 border-2 border-orange-500/20 shadow-lg"
+            className="bg-white rounded-2xl p-6 border-2 border-[#4988C4]/20 shadow-lg"
           >
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-bold text-orange-600 uppercase tracking-wider">Pending</p>
-              <AlertCircle className="h-5 w-5 text-orange-500" />
+              <p className="text-sm font-bold text-[#1C4D8D] uppercase tracking-wider">Pending</p>
+              <AlertCircle className="h-5 w-5 text-[#4988C4]" />
             </div>
-            <p className="text-4xl font-black text-orange-600">{stats.pending}</p>
+            <p className="text-4xl font-black text-[#1C4D8D]">{stats.pending}</p>
           </motion.div>
 
           <motion.div
             whileHover={{ scale: 1.03, y: -4 }}
-            className="bg-white rounded-2xl p-6 border-2 border-red-500/20 shadow-lg"
+            className="bg-white rounded-2xl p-6 border-2 border-[#0F2854]/20 shadow-lg"
           >
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-bold text-red-600 uppercase tracking-wider">Inactive</p>
-              <XCircle className="h-5 w-5 text-red-500" />
+              <p className="text-sm font-bold text-[#0F2854] uppercase tracking-wider">Inactive</p>
+              <XCircle className="h-5 w-5 text-[#0F2854]" />
             </div>
-            <p className="text-4xl font-black text-red-600">{stats.inactive}</p>
+            <p className="text-4xl font-black text-[#0F2854]">{stats.inactive}</p>
           </motion.div>
         </div>
       </motion.div>
@@ -561,8 +561,8 @@ const NGOManagement = () => {
                           (ngo.status || 'active') === 'active'
                             ? 'bg-[#4CAF50]/10 border-[#4CAF50] text-[#4CAF50]'
                             : (ngo.status || 'active') === 'pending'
-                            ? 'bg-orange-500/10 border-orange-500 text-orange-600'
-                            : 'bg-red-500/10 border-red-500 text-red-600'
+                            ? 'bg-[#4988C4]/10 border-[#4988C4] text-[#1C4D8D]'
+                            : 'bg-[#0F2854]/10 border-[#0F2854] text-[#0F2854]'
                         }`}
                       >
                         <option value="active">Active</option>
@@ -613,7 +613,7 @@ const NGOManagement = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={() => handleDeleteNgo(ngo.id, ngo.name)}
-                    className="p-3 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-600 transition-colors"
+                    className="p-3 rounded-xl bg-[#0F2854]/10 hover:bg-[#0F2854]/20 text-[#0F2854] transition-colors"
                   >
                     <Trash2 className="h-5 w-5" />
                   </motion.button>

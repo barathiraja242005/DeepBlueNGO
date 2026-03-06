@@ -32,10 +32,10 @@ const Dashboard = ({ userState }: DashboardProps) => {
   const totalNGOs = filteredNgoData.length;
 
   const stats = [
-    { icon: Activity, label: 'Total Cases', value: totalCases.toLocaleString(), color: 'from-[#4988C4] via-[#1C4D8D] to-[#0F2854]', bgPattern: 'bg-[#4988C4]/5', change: '+12%' },
-    { icon: AlertTriangle, label: 'Emergency', value: emergencyCases, color: 'from-[#1C4D8D] via-[#0F2854] to-[#4988C4]', bgPattern: 'bg-[#1C4D8D]/5', change: '-5%' },
-    { icon: MapPin, label: 'Active States', value: activeStates, color: 'from-[#4988C4] to-[#1C4D8D]', bgPattern: 'bg-[#BDE8F5]/10', change: '+3' },
-    { icon: Users, label: 'NGO Partners', value: totalNGOs, color: 'from-[#1C4D8D] to-[#4988C4]', bgPattern: 'bg-[#0F2854]/5', change: '+8' },
+    { icon: Activity, label: 'Total Cases', value: totalCases.toLocaleString(), color: 'from-[#FFCE99] via-[#FFCE99] to-[#FF9644]', bgPattern: 'bg-[#FFCE99]/5', change: '+12%' },
+    { icon: AlertTriangle, label: 'Emergency', value: emergencyCases, color: 'from-[#FFCE99] via-[#FF9644] to-[#FFCE99]', bgPattern: 'bg-[#FFCE99]/5', change: '-5%' },
+    { icon: MapPin, label: 'Active States', value: activeStates, color: 'from-[#FFCE99] to-[#FFCE99]', bgPattern: 'bg-[#E3FDFD]/10', change: '+3' },
+    { icon: Users, label: 'NGO Partners', value: totalNGOs, color: 'from-[#FFCE99] to-[#FFCE99]', bgPattern: 'bg-[#FF9644]/5', change: '+8' },
   ];
 
   const recentAlerts = filteredDiseaseData
@@ -68,7 +68,7 @@ const Dashboard = ({ userState }: DashboardProps) => {
                 exportDashboardReport();
                 toast.success('Dashboard report downloaded successfully!');
               }}
-              className="px-4 py-2 bg-gradient-to-r from-[#4988C4] to-[#1C4D8D] text-white rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2 font-semibold"
+              className="px-4 py-2 bg-gradient-to-r from-[#FFCE99] to-[#FFCE99] text-white rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2 font-semibold"
             >
               <Download className="h-4 w-4" />
               Download Report
@@ -93,7 +93,7 @@ const Dashboard = ({ userState }: DashboardProps) => {
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center shadow-lg`}>
                     <Icon className="h-6 w-6 text-white" />
                   </div>
-                  <span className="text-xs font-semibold text-[#0F2854] bg-[#BDE8F5] px-2 py-1 rounded-full">
+                  <span className="text-xs font-semibold text-[#562F00] bg-[#E3FDFD] px-2 py-1 rounded-full">
                     {stat.change}
                   </span>
                 </div>
@@ -135,8 +135,8 @@ const Dashboard = ({ userState }: DashboardProps) => {
                     <div className="flex flex-col items-end gap-1">
                       <span className={`text-xs font-bold px-2 py-1 rounded-full ${
                         alert.severity === 'emergency' 
-                          ? 'bg-[#0F2854] text-white' 
-                          : 'bg-[#4988C4] text-white'
+                          ? 'bg-[#FF9644] text-white' 
+                          : 'bg-[#FFCE99] text-white'
                       }`}>
                         {alert.severity.toUpperCase()}
                       </span>

@@ -55,9 +55,9 @@ const StateDetail = ({ stateName, onBack, onStateChange, userState }: StateDetai
   const diseases = [...new Set(stateData.map(d => d.disease))];
   const severities = ['self-care', 'doctor', 'emergency'] as const;
   const severityColors: Record<string, string> = {
-    'self-care': '#BDE8F5',
-    'doctor': '#4988C4',
-    'emergency': '#0F2854',
+    'self-care': '#E3FDFD',
+    'doctor': '#FFCE99',
+    'emergency': '#FF9644',
   };
 
   return (
@@ -90,7 +90,7 @@ const StateDetail = ({ stateName, onBack, onStateChange, userState }: StateDetai
               exportFilteredDiseaseData(stateData, stateName || 'State');
               toast.success(`${stateName} data downloaded!`);
             }}
-            className="px-4 py-2 bg-gradient-to-r from-[#4988C4] to-[#1C4D8D] text-white rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2 font-semibold text-sm"
+            className="px-4 py-2 bg-gradient-to-r from-[#FFCE99] to-[#FFCE99] text-white rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2 font-semibold text-sm"
           >
             <Download className="h-4 w-4" />
             Download Report
@@ -103,20 +103,20 @@ const StateDetail = ({ stateName, onBack, onStateChange, userState }: StateDetai
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="bg-gradient-to-br from-[#BDE8F5] to-[#4988C4]/30 rounded-lg p-3 border border-[#4988C4]/50"
+            className="bg-gradient-to-br from-[#E3FDFD] to-[#FFCE99]/30 rounded-lg p-3 border border-[#FFCE99]/50"
           >
             <div className="flex items-center gap-2 mb-1">
-              <Activity className="h-4 w-4 text-[#0F2854]" />
-              <span className="text-xs font-semibold text-[#0F2854]">Total Cases</span>
+              <Activity className="h-4 w-4 text-[#562F00]" />
+              <span className="text-xs font-semibold text-[#562F00]">Total Cases</span>
             </div>
-            <p className="text-2xl font-bold text-[#0F2854]">{totalCases.toLocaleString()}</p>
+            <p className="text-2xl font-bold text-[#562F00]">{totalCases.toLocaleString()}</p>
           </motion.div>
 
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-[#4988C4] to-[#1C4D8D]/30 rounded-lg p-3 border border-[#1C4D8D]/50"
+            className="bg-gradient-to-br from-[#FFCE99] to-[#FFCE99]/30 rounded-lg p-3 border border-[#FFCE99]/50"
           >
             <div className="flex items-center gap-2 mb-1">
               <AlertTriangle className="h-4 w-4 text-white" />
@@ -129,20 +129,20 @@ const StateDetail = ({ stateName, onBack, onStateChange, userState }: StateDetai
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="bg-gradient-to-br from-[#BDE8F5] to-[#4988C4]/40 rounded-lg p-3 border border-[#4988C4]/60"
+            className="bg-gradient-to-br from-[#E3FDFD] to-[#FFCE99]/40 rounded-lg p-3 border border-[#FFCE99]/60"
           >
             <div className="flex items-center gap-2 mb-1">
-              <MapPin className="h-4 w-4 text-[#0F2854]" />
-              <span className="text-xs font-semibold text-[#0F2854]">Cities</span>
+              <MapPin className="h-4 w-4 text-[#562F00]" />
+              <span className="text-xs font-semibold text-[#562F00]">Cities</span>
             </div>
-            <p className="text-2xl font-bold text-[#0F2854]">{cities}</p>
+            <p className="text-2xl font-bold text-[#562F00]">{cities}</p>
           </motion.div>
 
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="bg-gradient-to-br from-[#1C4D8D] to-[#0F2854] rounded-lg p-3 border border-[#4988C4]"
+            className="bg-gradient-to-br from-[#FFCE99] to-[#FF9644] rounded-lg p-3 border border-[#FFCE99]"
           >
             <div className="flex items-center gap-2 mb-1">
               <TrendingUp className="h-4 w-4 text-white" />

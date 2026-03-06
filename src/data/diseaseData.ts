@@ -26,7 +26,7 @@ export const diseases = [
 ] as const;
 
 export const severityColors: Record<string, string> = {
-  'self-care': '#9cd4e1f3',
+  'self-care': '#4CAF50',
   'doctor': '#4988C4',
   'emergency': '#0F2854',
 };

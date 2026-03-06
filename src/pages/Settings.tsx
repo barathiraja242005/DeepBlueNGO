@@ -12,7 +12,7 @@ const Settings = () => {
       icon: Bell,
       title: 'Notifications',
       description: 'Manage your notification preferences',
-      color: 'from-[#4988C4] to-[#1C4D8D]',
+      color: 'from-[#FFCE99] to-[#FFCE99]',
       settings: [
         { 
           label: 'Enable Notifications', 
@@ -32,7 +32,7 @@ const Settings = () => {
       icon: Palette,
       title: 'Appearance',
       description: 'Customize the look and feel',
-      color: 'from-[#1C4D8D] to-[#0F2854]',
+      color: 'from-[#FFCE99] to-[#FF9644]',
       settings: [
         { 
           label: 'Dark Mode', 
@@ -46,21 +46,21 @@ const Settings = () => {
       icon: Shield,
       title: 'Privacy & Security',
       description: 'Control your data and privacy',
-      color: 'from-[#BDE8F5] to-[#4988C4]',
+      color: 'from-[#E3FDFD] to-[#FFCE99]',
       info: 'Your data is encrypted and stored securely. We never share your information with third parties.',
     },
     {
       icon: Database,
       title: 'Data Management',
       description: 'Control how your data is stored',
-      color: 'from-[#4988C4] via-[#1C4D8D] to-[#0F2854]',
+      color: 'from-[#FFCE99] via-[#FFCE99] to-[#FF9644]',
       info: 'Data is synchronized in real-time with our secure servers.',
     },
     {
       icon: Globe,
       title: 'Language & Region',
       description: 'Set your preferences',
-      color: 'from-[#1C4D8D] to-[#4988C4]',
+      color: 'from-[#FFCE99] to-[#FFCE99]',
       info: 'Currently set to: English (India)',
     },
   ];

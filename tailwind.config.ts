@@ -18,6 +18,25 @@ export default {
         display: ['Space Grotesk', 'system-ui', 'sans-serif'],
       },
       colors: {
+        // Direct color palette access
+        'brand': {
+          primary: '#050C9C',     // Deep Navy
+          secondary: '#3572EF',   // Royal Blue
+          accent: '#3ABEF9',      // Sky Blue
+          light: '#A7E6FF',       // Ice Blue
+        },
+        'status': {
+          success: '#4CAF50',
+          warning: '#F59E0B',
+          error: '#EF4444',
+          info: '#3ABEF9',
+        },
+        'urgency': {
+          emergency: '#050C9C',
+          doctor: '#3ABEF9',
+          selfcare: '#4CAF50',
+        },
+        // Shadcn/UI compatible colors
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
