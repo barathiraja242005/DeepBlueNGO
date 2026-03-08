@@ -154,8 +154,8 @@ const Settings = () => {
           transition={{ delay: 0.8 }}
           className="mt-8 text-center"
         >
-          <p className="text-sm text-muted-foreground">CURA-NGO v1.0.0</p>
-          <p className="text-xs text-muted-foreground mt-1">© 2026 CURA-NGO. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">CURA v1.0.0</p>
+          <p className="text-xs text-muted-foreground mt-1">© 2026 CURA. All rights reserved.</p>
         </motion.div>
       </motion.div>
     </div>

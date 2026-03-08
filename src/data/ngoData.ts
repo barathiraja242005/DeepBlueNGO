@@ -1,3 +1,5 @@
+export type SubscriptionTier = 'free' | 'premium';
+
 export interface NGO {
   id: string;
   name: string;
@@ -12,6 +14,7 @@ export interface NGO {
   volunteers?: number;
   activeProjects?: number;
   status?: 'active' | 'inactive' | 'pending';
+  subscription?: SubscriptionTier;
 }
 
 export const ngoData: NGO[] = [

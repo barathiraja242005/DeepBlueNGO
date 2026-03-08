@@ -58,7 +58,7 @@ const Dashboard = ({ userState }: DashboardProps) => {
                 <Heart className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-foreground">CURA-NGO Dashboard</h1>
+                <h1 className="text-3xl font-bold text-foreground">CURA Dashboard</h1>
                 <p className="text-muted-foreground">Real-time health surveillance overview</p>
               </div>
             </div>

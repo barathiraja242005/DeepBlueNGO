@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Home, MapPin, BarChart3, Users, Settings, Menu, X, Navigation, LogOut, Shield, Building2 } from 'lucide-react';
+import { Home, MapPin, BarChart3, Users, Settings, Menu, X, Navigation, LogOut, Shield, Building2, Database, Crown, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useUser } from '@/contexts/UserContext';
 import { toast } from 'sonner';
@@ -7,6 +7,7 @@ import { toast } from 'sonner';
 interface MenuBarProps {
   activeItem?: string;
   onItemClick?: (item: string) => void;
+  onUpgradePremium?: () => void;
 }
 
 const menuItems = [
@@ -16,12 +17,13 @@ const menuItems = [
   { id: 'analytics', icon: BarChart3, label: 'Analytics', adminOnly: false },
   { id: 'ngo', icon: Users, label: 'NGO Network', adminOnly: false },
   { id: 'ngo-management', icon: Building2, label: 'NGO Management', adminOnly: true },
+  { id: 'user-management', icon: Database, label: 'User Management', adminOnly: true },
   { id: 'settings', icon: Settings, label: 'Settings', adminOnly: false },
 ];
 
-const MenuBar = ({ activeItem = 'map', onItemClick }: MenuBarProps) => {
+const MenuBar = ({ activeItem = 'map', onItemClick, onUpgradePremium }: MenuBarProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { user, logout, isAdmin, isNGO } = useUser();
+  const { user, logout, isAdmin, isNGO, isPremium } = useUser();
 
   const handleLogout = () => {
     logout();
@@ -126,8 +128,8 @@ const MenuBar = ({ activeItem = 'map', onItemClick }: MenuBarProps) => {
           {/* User Info */}
           <div className="p-4 border-b border-border">
             <div className="flex items-center gap-3">
-              <div className={`w-8 h-8 rounded-lg ${isAdmin ? 'bg-red-500/20' : 'bg-green-500/20'} flex items-center justify-center flex-shrink-0`}>
-                {isAdmin ? <Shield className="h-4 w-4 text-red-600" /> : <Building2 className="h-4 w-4 text-green-600" />}
+              <div className={`w-8 h-8 rounded-lg ${isAdmin ? 'bg-red-500/20' : isPremium ? 'bg-gradient-to-br from-[#0F2854]/20 to-[#4988C4]/20' : 'bg-green-500/20'} flex items-center justify-center flex-shrink-0`}>
+                {isAdmin ? <Shield className="h-4 w-4 text-red-600" /> : isPremium ? <Crown className="h-4 w-4 text-[#0F2854]" /> : <Building2 className="h-4 w-4 text-green-600" />}
               </div>
               <AnimatePresence>
                 {isExpanded && (
@@ -137,7 +139,15 @@ const MenuBar = ({ activeItem = 'map', onItemClick }: MenuBarProps) => {
                     exit={{ opacity: 0, x: -10 }}
                     className="overflow-hidden flex-1 min-w-0"
                   >
-                    <div className="text-xs font-bold text-foreground truncate">{user?.name}</div>
+                    <div className="text-xs font-bold text-foreground truncate flex items-center gap-1.5">
+                      {user?.name}
+                      {isPremium && (
+                        <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-gradient-to-r from-[#0F2854] to-[#1C4D8D] text-[8px] font-bold text-white uppercase tracking-wider">
+                          <Crown className="h-2.5 w-2.5" />
+                          PRO
+                        </span>
+                      )}
+                    </div>
                     <div className="text-[10px] text-muted-foreground capitalize">{user?.role}</div>
                     {isNGO && <div className="text-[10px] text-primary truncate">{user?.state}</div>}
                   </motion.div>
@@ -145,6 +155,35 @@ const MenuBar = ({ activeItem = 'map', onItemClick }: MenuBarProps) => {
               </AnimatePresence>
             </div>
           </div>
+
+          {/* Upgrade to Premium - Only for free NGO users */}
+          {isNGO && !isPremium && (
+            <div className="px-3 py-2 border-b border-border">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={onUpgradePremium}
+                className="w-full flex items-center gap-2 px-2 py-2.5 rounded-xl bg-gradient-to-r from-[#0F2854] to-[#1C4D8D] text-white transition-all hover:shadow-lg hover:shadow-[#0F2854]/20"
+              >
+                <div className="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Zap className="h-3.5 w-3.5 text-white" />
+                </div>
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      className="overflow-hidden min-w-0"
+                    >
+                      <p className="text-[10px] font-bold whitespace-nowrap">Upgrade to Premium</p>
+                      <p className="text-[8px] text-white/70 whitespace-nowrap">₹999/mo • All States</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.button>
+            </div>
+          )}
 
           {/* Logout Button */}
           <motion.button
@@ -178,7 +217,7 @@ const MenuBar = ({ activeItem = 'map', onItemClick }: MenuBarProps) => {
                   exit={{ opacity: 0, y: 10 }}
                   className="text-[10px] text-muted-foreground text-center"
                 >
-                  CURA-NGO v1.0
+                  CURA v1.0
                 </motion.div>
               )}
             </AnimatePresence>

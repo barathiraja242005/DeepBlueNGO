@@ -11,6 +11,7 @@ interface DiseaseMapProps {
   onSelectPoint?: (point: DiseasePoint) => void;
   onStateClick?: (stateName: string) => void;
   userState?: string; // For NGO users - their registered state
+  isPremium?: boolean; // Premium subscription - access all states
 }
 
 const severitySize: Record<string, number> = {
@@ -67,7 +68,7 @@ const createMarkerIcon = (severity: string, color: string) => {
   });
 };
 
-const DiseaseMap = ({ data, selectedDisease, selectedSeverity, onSelectPoint, onStateClick, userState }: DiseaseMapProps) => {
+const DiseaseMap = ({ data, selectedDisease, selectedSeverity, onSelectPoint, onStateClick, userState, isPremium }: DiseaseMapProps) => {
   const mapRef = useRef<L.Map | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const markersRef = useRef<L.LayerGroup | null>(null);
@@ -104,8 +105,9 @@ const DiseaseMap = ({ data, selectedDisease, selectedSeverity, onSelectPoint, on
         L.geoJSON(geojson, {
           style: (feature) => {
             const stateName = feature?.properties?.st_nm || feature?.properties?.ST_NM || feature?.properties?.name;
+            const isPremiumUser = isPremium;
             const isUserState = userState && stateName === userState;
-            const isRestricted = userState && stateName !== userState;
+            const isRestricted = userState && !isPremiumUser && stateName !== userState;
             
             return {
               color: isUserState ? 'hsl(142, 76%, 36%)' : isRestricted ? 'hsl(0, 0%, 60%)' : 'hsl(217, 91%, 60%)',
@@ -120,11 +122,11 @@ const DiseaseMap = ({ data, selectedDisease, selectedSeverity, onSelectPoint, on
             const stateName = feature.properties?.st_nm || feature.properties?.ST_NM || feature.properties?.name;
             if (stateName) {
               const isUserState = userState && stateName === userState;
-              const isRestricted = userState && stateName !== userState;
+              const isRestricted = userState && !isPremium && stateName !== userState;
 
               layer.on({
                 click: () => {
-                  // If NGO user (has userState), restrict to their state only
+                  // If NGO user (has userState) without premium, restrict to their state only
                   if (isRestricted) {
                     toast.error('Access Restricted', {
                       description: 'Upgrade to Premium to access all states. Currently limited to ' + userState + ' only.',
@@ -199,21 +201,42 @@ const DiseaseMap = ({ data, selectedDisease, selectedSeverity, onSelectPoint, on
       const legend = L.control({ position: 'bottomright' });
       legend.onAdd = () => {
         const div = L.DomUtil.create('div', 'map-access-legend');
-        div.innerHTML = `
-          <div style="background: rgba(255, 255, 255, 0.98); border-radius: 12px; padding: 12px 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-family: 'DM Sans', sans-serif; min-width: 200px;">
-            <div style="font-weight: 800; font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">Map Access</div>
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-              <div style="width: 14px; height: 14px; border-radius: 3px; background: hsl(142, 76%, 45%); border: 2px solid hsl(142, 76%, 35%);"></div>
-              <span style="font-size: 12px; font-weight: 600; color: #0f172a;">${userState}</span>
-              <span style="margin-left: auto; font-size: 10px; font-weight: 700; color: hsl(142, 76%, 40%); background: hsl(142, 76%, 95%); padding: 2px 6px; border-radius: 4px;">ACTIVE</span>
+        if (isPremium) {
+          div.innerHTML = `
+            <div style="background: rgba(255, 255, 255, 0.98); border-radius: 12px; padding: 12px 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-family: 'DM Sans', sans-serif; min-width: 200px;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                <span style="font-weight: 800; font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">Map Access</span>
+                <span style="margin-left: auto; font-size: 9px; font-weight: 700; color: #0F2854; background: linear-gradient(135deg, #BDE8F5, #4988C4); padding: 2px 8px; border-radius: 4px;">👑 PREMIUM</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                <div style="width: 14px; height: 14px; border-radius: 3px; background: hsl(142, 76%, 45%); border: 2px solid hsl(142, 76%, 35%);"></div>
+                <span style="font-size: 12px; font-weight: 600; color: #0f172a;">${userState}</span>
+                <span style="margin-left: auto; font-size: 10px; font-weight: 700; color: hsl(142, 76%, 40%); background: hsl(142, 76%, 95%); padding: 2px 6px; border-radius: 4px;">HOME</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="width: 14px; height: 14px; border-radius: 3px; background: hsl(217, 91%, 55%); border: 2px solid hsl(217, 91%, 45%);"></div>
+                <span style="font-size: 12px; font-weight: 600; color: #0f172a;">All States</span>
+                <span style="margin-left: auto; font-size: 10px; font-weight: 700; color: #0F2854; background: #BDE8F5; padding: 2px 6px; border-radius: 4px;">UNLOCKED</span>
+              </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 8px; opacity: 0.6;">
-              <div style="width: 14px; height: 14px; border-radius: 3px; background: hsl(0, 0%, 80%); border: 2px dashed hsl(0, 0%, 60%);"></div>
-              <span style="font-size: 12px; font-weight: 600; color: #64748b;">Other States</span>
-              <span style="margin-left: auto; font-size: 9px; font-weight: 700; color: #f59e0b; background: #fef3c7; padding: 2px 6px; border-radius: 4px;">🔒 PREMIUM</span>
+          `;
+        } else {
+          div.innerHTML = `
+            <div style="background: rgba(255, 255, 255, 0.98); border-radius: 12px; padding: 12px 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-family: 'DM Sans', sans-serif; min-width: 200px;">
+              <div style="font-weight: 800; font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">Map Access</div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                <div style="width: 14px; height: 14px; border-radius: 3px; background: hsl(142, 76%, 45%); border: 2px solid hsl(142, 76%, 35%);"></div>
+                <span style="font-size: 12px; font-weight: 600; color: #0f172a;">${userState}</span>
+                <span style="margin-left: auto; font-size: 10px; font-weight: 700; color: hsl(142, 76%, 40%); background: hsl(142, 76%, 95%); padding: 2px 6px; border-radius: 4px;">ACTIVE</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; opacity: 0.6;">
+                <div style="width: 14px; height: 14px; border-radius: 3px; background: hsl(0, 0%, 80%); border: 2px dashed hsl(0, 0%, 60%);"></div>
+                <span style="font-size: 12px; font-weight: 600; color: #64748b;">Other States</span>
+                <span style="margin-left: auto; font-size: 9px; font-weight: 700; color: #0F2854; background: #BDE8F5; padding: 2px 6px; border-radius: 4px;">🔒 PREMIUM</span>
+              </div>
             </div>
-          </div>
-        `;
+          `;
+        }
         return div;
       };
       legend.addTo(map);

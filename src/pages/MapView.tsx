@@ -8,20 +8,21 @@ import { motion } from 'framer-motion';
 interface MapViewProps {
   onStateClick?: (stateName: string) => void;
   userState?: string; // For NGO users - restrict to their state
+  isPremium?: boolean; // Premium subscription
 }
 
-const MapView = ({ onStateClick, userState }: MapViewProps) => {
+const MapView = ({ onStateClick, userState, isPremium }: MapViewProps) => {
   const [selectedDisease, setSelectedDisease] = useState<string | null>(null);
   const [selectedSeverity, setSelectedSeverity] = useState<string | null>(null);
   const [selectedPoint, setSelectedPoint] = useState<DiseasePoint | null>(null);
 
-  // Filter data by user's state if NGO user
+  // Filter data by user's state if NGO user (premium users see all)
   const filteredData = useMemo(() => {
-    if (userState) {
+    if (userState && !isPremium) {
       return diseaseData.filter(d => d.state === userState);
     }
     return diseaseData;
-  }, [userState]);
+  }, [userState, isPremium]);
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -45,6 +46,7 @@ const MapView = ({ onStateClick, userState }: MapViewProps) => {
           onSelectPoint={setSelectedPoint}
           onStateClick={onStateClick}
           userState={userState}
+          isPremium={isPremium}
         />
         <DetailPanel
           point={selectedPoint}

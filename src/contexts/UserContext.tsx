@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 
 export type UserRole = 'admin' | 'ngo';
+export type SubscriptionTier = 'free' | 'premium';
 
 export interface User {
   id: string;
@@ -9,14 +10,17 @@ export interface User {
   ngoId?: string; // Only for NGO users
   state?: string; // Only for NGO users - their operational state
   city?: string; // Only for NGO users - their operational city
+  subscription?: SubscriptionTier; // NGO subscription tier
 }
 
 interface UserContextType {
   user: User | null;
   login: (user: User) => void;
   logout: () => void;
+  upgradeToPremium: () => void;
   isAdmin: boolean;
   isNGO: boolean;
+  isPremium: boolean;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -38,11 +42,20 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     localStorage.removeItem('user');
   };
 
+  const upgradeToPremium = () => {
+    if (user) {
+      const updatedUser = { ...user, subscription: 'premium' as SubscriptionTier };
+      setUser(updatedUser);
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+    }
+  };
+
   const isAdmin = user?.role === 'admin';
   const isNGO = user?.role === 'ngo';
+  const isPremium = user?.subscription === 'premium';
 
   return (
-    <UserContext.Provider value={{ user, login, logout, isAdmin, isNGO }}>
+    <UserContext.Provider value={{ user, login, logout, upgradeToPremium, isAdmin, isNGO, isPremium }}>
       {children}
     </UserContext.Provider>
   );
